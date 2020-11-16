@@ -1,0 +1,16 @@
+{
+	"type": "mysql",
+	"host": "localhost",
+	"port": 3306,
+	"username": "root",
+	"password": "hello_world",
+	"database": "signal",
+	"synchronize": false,
+	"logging": false,
+	"entities": ["dist/module/route/rest/entities/*.js"],
+	"migrations": ["dist/migrations/**/*.js"],
+	"cli": {
+		"entitiesDir": "src/module/route/rest/entities",
+		"migrationsDir": "src/migrations"
+	}
+}
