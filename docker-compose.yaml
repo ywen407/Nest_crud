@@ -1,9 +1,16 @@
 version: '3.8'
 services:
   mysql:
-    image: mysql:8.0
+    image: mysql:5.7
     volumes:
-      - ./initdb:/docker-entrypoint-initdb.d/
+      - type: volume
+        source: dbdata
+        target: /var/lib/mysql:rw
+      - type: bind
+        source: ./initdb
+        target: /docker-entrypoint_initdb.d/
+        bind:
+          propagation: rprivate
     ports:
       - 3306:3306
     command: 
@@ -16,3 +23,5 @@ services:
       MYSQL_DATABASE: signal
       MYSQL_USER: root
       MYSQL_PASSWORD: hello_world
+volumes:
+  dbdata: 

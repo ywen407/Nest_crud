@@ -6,6 +6,8 @@ import {
 	Put,
 	Param,
 	Delete,
+	HttpException,
+	HttpStatus,
 } from '@nestjs/common';
 import { RestService } from './rest.service';
 import { CreateRestDto } from './dto/create-rest.dto';
@@ -27,7 +29,15 @@ export class RestController {
 
 	@Get(':id')
 	findOne(@Param('id') id: string) {
-		return this.restService.findOne(+id);
+		let findUser = this.restService.findOne(+id);
+		if (!findUser) {
+			return findUser;
+		} else {
+			throw new HttpException(
+				{ message: 'invalid user' },
+				HttpStatus.BAD_REQUEST,
+			);
+		}
 	}
 
 	@Put(':id')

@@ -5,9 +5,9 @@ export class Rest {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	@Column({ type: 'varchar' })
+	@Column({ type: 'varchar', default: 'none' })
 	name: string;
 
-	@Column('int')
+	@Column({ type: 'int', default: 0 })
 	age: number;
 }

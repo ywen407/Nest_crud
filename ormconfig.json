@@ -7,10 +7,10 @@
 	"database": "signal",
 	"synchronize": false,
 	"logging": false,
-	"entities": ["dist/module/route/rest/entities/*.js"],
-	"migrations": ["dist/migrations/**/*.js"],
+	"entities": ["src/model/**/*.ts"],
+	"migrations": ["src/migrations/*.ts"],
 	"cli": {
-		"entitiesDir": "src/module/route/rest/entities",
+		"entitiesDir": "src/model/",
 		"migrationsDir": "src/migrations"
 	}
 }

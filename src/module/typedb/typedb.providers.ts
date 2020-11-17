@@ -1,5 +1,4 @@
 import { createConnection } from 'typeorm';
-import { Rest } from '../route/rest/entities/rest.entity';
 
 //separated custom provider
 //사용 할때 @Inject('DB_CONNECTION')을 사용하여 주입.
@@ -14,10 +13,10 @@ export const typedbProviders = [
 				username: 'root',
 				password: 'hello_world',
 				database: 'signal',
-				entities: [Rest],
-				migrations: [__dirname + '../../migrations/*{.ts,js}'],
+				entities: [__dirname + '../../../**/*.entity!(*.d){.ts,.js}'],
+				migrations: [__dirname + '../../migrations/**/*.ts'],
 				migrationsRun: true,
-				synchronize: false,
+				synchronize: true,
 			}),
 	},
 ];

@@ -1,14 +1,14 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class restgen1605518297343 implements MigrationInterface {
+export class resttable1605604593734 implements MigrationInterface {
 	public async up(queryRunner: QueryRunner): Promise<void> {
-		queryRunner.createTable(
+		await queryRunner.createTable(
 			new Table({
 				name: 'rest',
 				columns: [
 					{
 						name: 'id',
-						type: 'int4',
+						type: 'int',
 						isPrimary: true,
 						isGenerated: true,
 						generationStrategy: 'increment',
@@ -20,7 +20,7 @@ export class restgen1605518297343 implements MigrationInterface {
 					},
 					{
 						name: 'age',
-						type: 'numeric',
+						type: 'int',
 						isNullable: true,
 					},
 				],

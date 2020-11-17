@@ -1,7 +1,9 @@
-import { IsString, IsNumber } from 'class-validator';
+import { IsString, IsInt } from 'class-validator';
+import { Transform } from 'class-transformer';
 export class CreateRestDto {
 	@IsString()
 	name: string;
-	@IsNumber()
+	@Transform(parseInt)
+	@IsInt()
 	age: number;
 }

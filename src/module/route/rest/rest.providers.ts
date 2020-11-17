@@ -1,5 +1,5 @@
 import { Connection, Repository } from 'typeorm';
-import { Rest } from './entities/rest.entity';
+import { Rest } from '../../../model/rest/rest.entity';
 
 export const restProviders = [
 	{
