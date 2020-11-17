@@ -1,8 +1,10 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateRestDto } from './create-rest.dto';
-import { IsNumber } from 'class-validator';
+import { IsInt } from 'class-validator';
+import { Transform } from 'class-transformer';
 
 export class UpdateRestDto extends PartialType(CreateRestDto) {
-	@IsNumber()
+	@Transform(parseInt)
+	@IsInt()
 	age: number;
 }
